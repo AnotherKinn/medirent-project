@@ -1,0 +1,258 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #6e8cbd;
+      color: #1a1a1a;
+      
+    }
+
+    /* Navbar */
+    .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(255, 255, 255, 0.1); /* transparan putih */
+  backdrop-filter: blur(1px);           /* efek blur kaca */
+  -webkit-backdrop-filter: blur(1px);   /* biar jalan di Safari juga */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* garis halus bawah */
+  z-index: 1000;
+}
+
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      
+
+  /* gradient soft */
+  background: linear-gradient(90deg, #1c57b5, #003d99, #1e4a86);
+
+
+  /* wajib buat gradient text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-block;
+
+
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      background: linear-gradient(90deg, #1c57b5, #003d99, #1e4a86);
+
+
+
+
+  /* wajib buat gradient text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-block;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+    }
+
+  .hero {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 280px 20px;
+  border-radius: 0 0 50px 50px;
+  overflow: hidden; /* biar blur gak keluar batas */
+}
+
+/* Gambar background blur */
+.hero::before {
+  
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+  url("asset/eme.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px); /* tingkat blur, bisa lo ubah 3–10px */
+  transform: scale(1.1); /* sedikit zoom biar pinggiran blur gak kelihatan */
+  z-index: 0;
+  opacity: 0.9; /* biar gambar gak terlalu pekat */
+}
+
+/* Teks tetap di atas dan tajam */
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+    /* Info Section */
+    .info-section {
+  
+      
+      max-width: 900px;
+      margin: 60px auto;
+      text-align: center;
+      line-height: 1.7;
+      padding: 0 20px;
+    }
+
+    .info-section h2 {
+      background: linear-gradient(90deg, #1c57b5, #003d99, #1e4a86);
+  /* wajib buat gradient text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-block;
+
+      margin-top: 20px;
+    }
+
+    .info-section p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    /* Product Section */
+    .product-section {
+      text-align: center;
+      padding: 120px 30px;
+      background-color: #eef4ff;
+    }
+
+    .product-section h2 {
+      color: #003d99;
+      margin-bottom: 30px;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .product-card p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .status {
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    .status.tersedia {
+      color: #00b300;
+    }
+
+    .status.disewa {
+      color: #d9534f;
+    }
+
+    .status i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      color: white;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    .status.tersedia i {
+      background-color: #28a745; /* hijau */
+    }
+
+    .status.disewa i {
+      background-color: #dc3545; /* merah */
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #0066cc, #003366);
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #005bb5, #002b5c);
+      transform: scale(1.03);
+    }

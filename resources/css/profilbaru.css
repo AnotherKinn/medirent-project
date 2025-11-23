@@ -1,0 +1,155 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+    body {
+      background-color: #f9fbfd;
+      color: #1a1a1a;
+    }
+
+    /* Navbar */
+    .navbar {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(255, 255, 255, 0.1); /* transparan putih */
+  backdrop-filter: blur(3px);           /* efek blur kaca */
+  -webkit-backdrop-filter: blur(3px);   /* biar jalan di Safari juga */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* garis halus bawah */
+  z-index: 1000;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0066cc;
+      }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 60px;
+      background: #fff;
+      max-width: 600px;
+      padding: 40px;
+      margin-inline: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    .profile-pic {
+      position: relative;
+    }
+
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #007bff;
+    }
+
+    .edit-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: #007bff;
+      color: #fff;
+      border-radius: 50%;
+      padding: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #222;
+    }
+
+    .input-group {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0056b3, #007bff);
+    }
