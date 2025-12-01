@@ -184,7 +184,7 @@ tr:hover {
           <td>Rp 20.000</td>
           <td class="status">Tersedia</td>
           <td>145</td>
-          <td><a href="kelola_alat2.html" class="edit-btn">✎ Edit</a></td></td>
+          <td><a href="{{ route('admin.data-alat.edit') }}" class="edit-btn">✎ Edit</a></td></td>
         </tr>
         <tr>
           <td>3</td>

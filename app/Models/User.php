@@ -15,9 +15,8 @@ class User extends Authenticatable
         'nama',
         'email',
         'password',
-        'alamat',
-        'nomor_telepon',
         'role',
+        'is_online'
     ];
 
     public function bookings()
@@ -34,5 +33,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class);
     }
-}
 
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'user_id');
+    }
+}

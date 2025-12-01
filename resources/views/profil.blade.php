@@ -29,7 +29,7 @@
   <li><a href="login">Profil</a></li>
 </ul>
   </nav>
-  
+
 <!-- Profil Section -->
   <section class="profile-container">
     <div class="profile-pic">
