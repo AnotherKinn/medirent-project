@@ -9,6 +9,8 @@ use App\Models\Booking;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Writer\PngWriter;
 
 class AlatController extends Controller
 {
@@ -131,18 +133,38 @@ class AlatController extends Controller
             'metode_pembayaran' => 'required|in:cod,bca,mandiri,bni,qris'
         ]);
 
-        // Ambil booking
         $booking = Booking::findOrFail($booking_id);
-
-        // Ambil transaksi yang terkait booking
         $transaksi = Transaction::where('id_booking', $booking_id)->firstOrFail();
 
-        // Update metode pembayaran
         $transaksi->update([
             'metode_pembayaran' => $request->metode_pembayaran,
         ]);
 
-        // Redirect ke halaman instruksi (atau halaman sukses)
-        return redirect()->route('user.transaksi.index')->with('success', 'Pembayaran berhasil dilakukan, silahkan upload bukti pembayaran');
+        if ($request->metode_pembayaran === 'qris') {
+            // URL atau data yang ingin dijadikan QR
+            $paymentUrl = route('user.transaksi.index'); // sesuaikan jika mau ke halaman pembayaran spesifik
+
+            // Build QR menggunakan Endroid
+            $result = (new Builder(writer: new PngWriter()))
+                ->build(
+                    data: $paymentUrl,
+                    size: 300,
+                    margin: 10,
+                );
+
+            $qrBase64 = $result->getDataUri(); // langsung data:image/png;base64,...
+
+            return redirect()
+                ->back()
+                ->with('success_payment', [
+                    'payment_method' => 'qris',
+                    'kode_transaksi' => $transaksi->kode_transaksi,
+                    'qr_base64' => $qrBase64,
+                ]);
+        }
+
+        return redirect()
+            ->route('user.transaksi.index')
+            ->with('success', 'Pembayaran berhasil dilakukan, silahkan upload bukti pembayaran');
     }
 }

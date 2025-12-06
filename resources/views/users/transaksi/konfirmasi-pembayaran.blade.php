@@ -450,14 +450,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-           @if(session('success'))
-            Swal.fire({
-                icon: 'success',
-                title: 'Berhasil',
-                text: "{{session('success')}}",
-                showConfirmButton: true,
-            });
-            @endif
+        @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: "{{session('success')}}",
+            showConfirmButton: true,
+        });
+        @endif
+
     </script>
 
 
@@ -490,6 +491,32 @@
         });
 
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (session('success_payment'))
+    <script>
+        const data = @json(session('success_payment'));
+
+        Swal.fire({
+            title: '<div style="text-align:center;">Pembayaran dengan ' + data.payment_method.toUpperCase() +
+                '</div>',
+            html: `
+            <div style="text-align:center;">
+                <p class="mb-2">Kode Transaksi: <strong>${data.kode_transaksi}</strong></p>
+                <p>Silakan scan QR berikut:</p>
+                <img src="${data.qr_base64}" style="max-width:300px; border-radius:10px; margin-top:10px; margin:auto;">
+            </div>
+        `,
+            confirmButtonText: 'Oke, Saya Sudah Bayar',
+            width: 400,
+        }).then(() => {
+            window.location.href = "{{ route('user.transaksi.index') }}";
+        });
+
+    </script>
+    @endif
+
 
 </body>
 
